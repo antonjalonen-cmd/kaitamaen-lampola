@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="fi" data-lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Kaitamäen Lampola – Puhtaita suomenlampaita vuodesta 1978 | Sarvijoki, Kurikka</title>
+  <meta name="description" content="Kaitamäen Lampola kasvattaa puhtaita suomenlampaita Kurikan Sarvijoella vuodesta 1978. Karitsanliha, villalanka ja tali suoraan tilalta. Sarvijoen kehräämö samassa pihapiirissä.">
+  <meta property="og:title" content="Kaitamäen Lampola – Suomenlampaita Sarvijoelta">
+  <meta property="og:description" content="320 uuhta, puhtaita suomenlampaita. Karitsanliha, villalanka ja tali suoraan tilalta.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Karla:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+    :root{
+      --barn:#6B1A1A;
+      --barn-lt:#8B3A3A;
+      --barn-dk:#4A1010;
+      --fleece:#F5F0E8;
+      --linen:#EAE0CE;
+      --sage:#4A6545;
+      --sage-lt:#6B8B5E;
+      --stone:#78706A;
+      --ink:#1A1210;
+      --font-display:'Spectral',Georgia,serif;
+      --font-body:'Karla',system-ui,sans-serif;
+      --ease:cubic-bezier(.4,0,.2,1);
+    }
+
+    html{font-size:16px;scroll-behavior:smooth}
+    body{font-family:var(--font-body);color:var(--ink);background:var(--fleece);line-height:1.6;overflow-x:hidden}
+    img{max-width:100%;height:auto;display:block}
+    a{text-decoration:none;color:inherit}
+
+    /* ===== i18n ===== */
+    [data-lang="fi"] .lang-sv,[data-lang="fi"] .lang-en{display:none}
+    [data-lang="sv"] .lang-fi,[data-lang="sv"] .lang-en{display:none}
+    [data-lang="en"] .lang-fi,[data-lang="en"] .lang-sv{display:none}
+
+    /* ===== NAV ===== */
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:200;
+      background:var(--barn);
+      border-bottom:1px solid rgba(245,240,232,.08);
+    }
+    .nav-inner{
+      max-width:1360px;margin:0 auto;padding:0 48px;
+      height:66px;display:flex;align-items:center;gap:0;
+    }
+    .nav-logo{
+      font-family:var(--font-display);font-size:1rem;
+      font-weight:600;color:var(--fleece);
+      letter-spacing:.02em;white-space:nowrap;margin-right:auto;
+    }
+    .nav-links{
+      display:flex;gap:36px;align-items:center;
+    }
+    .nav-links a{
+      font-size:.78rem;font-weight:600;letter-spacing:.1em;
+      text-transform:uppercase;color:rgba(245,240,232,.65);
+      transition:color .22s var(--ease);
+      padding:4px 0;
+    }
+    .nav-links a:hover{color:var(--fleece)}
+    .lang-bar{
+      display:flex;gap:0;margin-left:36px;
+      border:1px solid rgba(245,240,232,.2);
+    }
+    .lang-bar button{
+      background:none;border:none;border-right:1px solid rgba(245,240,232,.2);
+      color:rgba(245,240,232,.5);font-family:var(--font-body);
+      font-size:.7rem;font-weight:700;letter-spacing:.08em;
+      padding:5px 10px;cursor:pointer;
+      transition:all .2s;
+    }
+    .lang-bar button:last-child{border-right:none}
+    .lang-bar button:hover,.lang-bar button.active{
+      background:rgba(245,240,232,.12);color:var(--fleece);
+    }
+    .hamburger{
+      display:none;background:none;border:none;
+      color:var(--fleece);font-size:1.5rem;cursor:pointer;
+      padding:4px;line-height:1;margin-left:20px;
+    }
+    .nav-mobile{
+      display:none;flex-direction:column;
+      background:var(--barn-dk);
+      padding:0 48px 20px;
+    }
+    .nav-mobile.open{display:flex}
+    .nav-mobile a{
+      font-size:.82rem;font-weight:600;letter-spacing:.08em;
+      text-transform:uppercase;color:rgba(245,240,232,.72);
+      padding:12px 0;border-bottom:1px solid rgba(245,240,232,.06);
+      transition:color .2s;
+    }
+    .nav-mobile a:hover{color:var(--fleece)}
+
+    /* ===== HERO ===== */
+    .hero{
+      position:relative;height:100vh;min-height:620px;
+      overflow:hidden;display:flex;align-items:stretch;
+      margin-top:66px;
+    }
+    .hero-photo{
+      position:absolute;inset:0;
+      background:url('images/farm-4.jpg') 62% center/cover no-repeat;
+      filter:brightness(.78) saturate(1.08);
+    }
+    .hero-panel{
+      position:relative;z-index:2;
+      flex-shrink:0;width:52%;
+      background:var(--barn);
+      clip-path:polygon(0 0, 92% 0, 72% 100%, 0 100%);
+      display:flex;flex-direction:column;justify-content:flex-end;
+    }
+    .hero-panel-content{
+      width:68%;padding:0 0 80px 56px;
+      display:flex;flex-direction:column;justify-content:flex-end;
+    }
+    .hero-eyebrow{
+      font-size:.7rem;font-weight:700;letter-spacing:.18em;
+      text-transform:uppercase;color:rgba(245,240,232,.45);
+      margin-bottom:18px;
+    }
+    .hero-name{
+      font-family:var(--font-display);
+      font-size:clamp(2.4rem,4vw,4rem);
+      font-weight:300;line-height:1.1;color:var(--fleece);
+      margin-bottom:18px;
+    }
+    .hero-name em{font-style:italic;font-weight:600}
+    .hero-tagline{
+      font-size:1rem;font-weight:400;
+      color:rgba(245,240,232,.72);
+      line-height:1.6;margin-bottom:40px;
+      max-width:300px;
+    }
+    .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+    .btn{
+      font-family:var(--font-body);font-size:.76rem;
+      font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+      padding:13px 26px;cursor:pointer;border:none;
+      transition:all .22s var(--ease);display:inline-block;
+    }
+    .btn-primary{background:var(--fleece);color:var(--barn)}
+    .btn-primary:hover{background:var(--linen)}
+    .btn-outline{
+      background:transparent;color:rgba(245,240,232,.8);
+      border:1px solid rgba(245,240,232,.35);
+    }
+    .btn-outline:hover{border-color:var(--fleece);color:var(--fleece)}
+    .hero-badge{
+      position:absolute;bottom:40px;right:48px;z-index:3;
+      background:rgba(26,18,16,.55);backdrop-filter:blur(8px);
+      border:1px solid rgba(245,240,232,.12);
+      padding:12px 18px;
+    }
+    .hero-badge-line1{
+      font-size:.65rem;font-weight:700;letter-spacing:.12em;
+      text-transform:uppercase;color:rgba(245,240,232,.45);
+      margin-bottom:4px;
+    }
+    .hero-badge-line2{
+      font-family:var(--font-display);font-size:1rem;
+      font-weight:400;color:var(--fleece);
+    }
+
+    /* ===== STATS ===== */
+    .stats{background:var(--sage);padding:36px 0}
+    .stats-inner{
+      max-width:1360px;margin:0 auto;padding:0 48px;
+      display:grid;grid-template-columns:repeat(4,1fr);
+      gap:24px;text-align:center;
+    }
+    .stat-num{
+      font-family:var(--font-display);font-size:2.4rem;
+      font-weight:300;color:var(--fleece);line-height:1;
+      margin-bottom:6px;
+    }
+    .stat-label{
+      font-size:.72rem;font-weight:600;letter-spacing:.1em;
+      text-transform:uppercase;color:rgba(245,240,232,.58);
+    }
+    .stat-sep{
+      width:1px;background:rgba(245,240,232,.12);
+      display:none;
+    }
+
+    /* ===== SHARED ===== */
+    section{padding:104px 0}
+    .container{max-width:1360px;margin:0 auto;padding:0 48px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .two-col.rev{direction:rtl}
+    .two-col.rev>*{direction:ltr}
+    .s-eye{
+      font-size:.7rem;font-weight:700;letter-spacing:.16em;
+      text-transform:uppercase;color:var(--sage-lt);margin-bottom:14px;
+    }
+    .s-eye.light{color:rgba(245,240,232,.42)}
+    .s-title{
+      font-family:var(--font-display);
+      font-size:clamp(1.7rem,2.8vw,2.7rem);
+      font-weight:300;line-height:1.16;
+      color:var(--ink);margin-bottom:22px;
+    }
+    .s-title.light{color:var(--fleece)}
+    .s-body{
+      font-size:1rem;line-height:1.72;color:var(--stone);
+    }
+    .s-body.light{color:rgba(245,240,232,.72)}
+    .photo-wrap{position:relative;overflow:hidden}
+    .photo-wrap img{width:100%;height:560px;object-fit:cover;display:block}
+    .photo-wrap-sm img{height:440px}
+
+    /* ===== KARITSANLIHA ===== */
+    .karitsanliha{background:var(--fleece)}
+    .liha-facts{
+      display:grid;grid-template-columns:1fr 1fr;
+      gap:10px;margin-top:32px;
+    }
+    .liha-fact{
+      border-left:2px solid var(--barn);
+      padding:12px 14px;background:var(--linen);
+    }
+    .lf-key{
+      font-size:.68rem;font-weight:700;letter-spacing:.1em;
+      text-transform:uppercase;color:var(--barn);margin-bottom:3px;
+    }
+    .lf-val{
+      font-family:var(--font-display);font-size:.98rem;
+      font-weight:400;color:var(--ink);
+    }
+
+    /* ===== KEHRÄÄMÖPOLKU ===== */
+    .kehraamo{background:var(--barn);padding:96px 0}
+    .kehraamo-hd{text-align:center;margin-bottom:64px}
+    .kehraamo-intro{
+      font-size:.98rem;color:rgba(245,240,232,.65);
+      max-width:580px;margin:0 auto;line-height:1.68;
+    }
+    .ksteps{
+      display:grid;grid-template-columns:repeat(4,1fr);
+      gap:0;position:relative;
+    }
+    .ksteps::before{
+      content:'';position:absolute;
+      top:36px;left:calc(12.5% + 16px);right:calc(12.5% + 16px);
+      height:1px;background:rgba(245,240,232,.12);
+    }
+    .kstep{text-align:center;padding:0 20px}
+    .kstep-n{
+      font-family:var(--font-display);font-size:3rem;
+      font-weight:300;color:rgba(245,240,232,.08);
+      line-height:1;margin-bottom:10px;
+    }
+    .kstep-icon{
+      width:56px;height:56px;border-radius:50%;
+      background:rgba(245,240,232,.08);
+      border:1px solid rgba(245,240,232,.18);
+      display:flex;align-items:center;justify-content:center;
+      margin:0 auto 18px;font-size:1.5rem;
+    }
+    .kstep-title{
+      font-family:var(--font-display);font-size:1.08rem;
+      font-weight:600;color:var(--fleece);margin-bottom:10px;
+    }
+    .kstep-body{
+      font-size:.86rem;line-height:1.62;
+      color:rgba(245,240,232,.6);
+    }
+
+    /* ===== VILLA ===== */
+    .villa{background:var(--linen)}
+    .villa-tags{
+      display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;
+    }
+    .villa-tag{
+      font-size:.72rem;font-weight:700;letter-spacing:.08em;
+      text-transform:uppercase;padding:6px 14px;
+      border:1px solid var(--stone);color:var(--stone);
+    }
+
+    /* ===== TARINA ===== */
+    .tarina{background:var(--fleece)}
+    .tarina-quote{
+      border-left:2px solid var(--barn);
+      padding:16px 24px;margin:28px 0;
+      background:var(--linen);
+    }
+    .tarina-quote p{
+      font-family:var(--font-display);font-size:1.05rem;
+      font-style:italic;font-weight:400;color:var(--barn);
+      line-height:1.5;
+    }
+    .tarina-meta{
+      display:flex;gap:32px;margin-top:32px;
+      border-top:1px solid rgba(120,112,106,.2);padding-top:28px;
+    }
+    .tm-item{font-size:.86rem;color:var(--stone)}
+    .tm-item strong{font-family:var(--font-display);font-size:1.4rem;
+    font-weight:300;color:var(--ink);display:block;margin-bottom:2px}
+
+    /* ===== GALLERY ===== */
+    .gallery{background:var(--ink);padding:0}
+    .g-grid{
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr;
+      grid-template-rows:auto auto;
+      gap:3px;
+    }
+    .gcell{overflow:hidden}
+    .gcell img{
+      width:100%;height:100%;object-fit:cover;display:block;
+      transition:transform .5s var(--ease);
+    }
+    .gcell:hover img{transform:scale(1.04)}
+    .gcell:nth-child(1){grid-row:1/3;height:524px}
+    .gcell:nth-child(2){height:260px}
+    .gcell:nth-child(3){height:260px}
+    .gcell:nth-child(4){height:260px}
+    .gcell:nth-child(5){height:260px}
+
+    /* ===== CONTACT ===== */
+    .contact{background:var(--barn-dk);padding:80px 0 88px}
+    .contact-grid{
+      display:grid;grid-template-columns:1fr 1.3fr;
+      gap:80px;align-items:start;
+    }
+    .contact-info h2{
+      font-family:var(--font-display);font-size:2.1rem;
+      font-weight:300;color:var(--fleece);margin-bottom:6px;
+    }
+    .contact-sub{
+      font-size:.76rem;font-weight:700;letter-spacing:.12em;
+      text-transform:uppercase;color:rgba(245,240,232,.38);
+      margin-bottom:36px;
+    }
+    .ci{display:flex;gap:14px;align-items:flex-start;margin-bottom:22px}
+    .ci-icon{
+      width:38px;height:38px;flex-shrink:0;
+      background:rgba(245,240,232,.07);border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      font-size:1rem;
+    }
+    .ci-key{
+      font-size:.68rem;font-weight:700;letter-spacing:.1em;
+      text-transform:uppercase;color:rgba(245,240,232,.35);
+      margin-bottom:3px;
+    }
+    .ci-val{font-size:.95rem;color:rgba(245,240,232,.78)}
+    .ci-val a{color:rgba(245,240,232,.78);transition:color .2s}
+    .ci-val a:hover{color:var(--fleece)}
+    .map-frame{
+      width:100%;height:380px;border:0;
+      filter:grayscale(.25) brightness(.65);
+    }
+
+    /* ===== FOOTER ===== */
+    footer{
+      background:var(--barn);
+      padding:24px 48px;
+      display:flex;align-items:center;justify-content:space-between;
+      flex-wrap:wrap;gap:14px;
+    }
+    .ft-name{
+      font-family:var(--font-display);font-size:.9rem;
+      font-weight:400;color:rgba(245,240,232,.6);
+    }
+    .ft-demo{
+      font-size:.72rem;color:rgba(245,240,232,.28);
+      letter-spacing:.04em;
+    }
+    .ft-links{display:flex;gap:24px}
+    .ft-links a{
+      font-size:.72rem;color:rgba(245,240,232,.35);
+      letter-spacing:.06em;text-transform:uppercase;
+      transition:color .2s;
+    }
+    .ft-links a:hover{color:rgba(245,240,232,.65)}
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width:960px){
+      .nav-links,.lang-bar{display:none}
+      .hamburger{display:block;margin-left:auto}
+      .hero-panel{
+        width:100%;clip-path:none;
+        background:rgba(74,16,16,.82);
+        justify-content:flex-end;
+      }
+      .hero-panel-content{width:100%;padding:0 24px 56px}
+      .hero-tagline{max-width:100%}
+      .hero-badge{display:none}
+      .stats-inner{grid-template-columns:1fr 1fr}
+      .two-col,.two-col.rev{grid-template-columns:1fr;gap:40px;direction:ltr}
+      .photo-wrap img{height:320px}
+      .liha-facts{grid-template-columns:1fr}
+      .ksteps{grid-template-columns:1fr 1fr;gap:40px}
+      .ksteps::before{display:none}
+      .contact-grid{grid-template-columns:1fr;gap:48px}
+      .map-frame{height:260px}
+    }
+    @media(max-width:600px){
+      section{padding:72px 0}
+      .container,.nav-inner,.stats-inner,.nav-mobile,footer{padding-left:24px;padding-right:24px}
+      .hero-panel-content{padding-left:24px;padding-right:24px}
+      .ksteps{grid-template-columns:1fr}
+      .g-grid{
+        grid-template-columns:1fr 1fr;
+        grid-template-rows:none;
+      }
+      .gcell:nth-child(1){grid-row:auto;height:200px}
+      .gcell:nth-child(2),.gcell:nth-child(3),
+      .gcell:nth-child(4),.gcell:nth-child(5){height:160px}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Kaitamäen Lampola</a>
+    <div class="nav-links">
+      <a href="#karitsanliha">
+        <span class="lang-fi">Liha</span>
+        <span class="lang-sv">Kött</span>
+        <span class="lang-en">Meat</span>
+      </a>
+      <a href="#kehraamo">
+        <span class="lang-fi">Villa &amp; Lanka</span>
+        <span class="lang-sv">Ull &amp; Garn</span>
+        <span class="lang-en">Wool &amp; Yarn</span>
+      </a>
+      <a href="#tarina">
+        <span class="lang-fi">Tarina</span>
+        <span class="lang-sv">Historik</span>
+        <span class="lang-en">Story</span>
+      </a>
+      <a href="#yhteystiedot">
+        <span class="lang-fi">Yhteystiedot</span>
+        <span class="lang-sv">Kontakt</span>
+        <span class="lang-en">Contact</span>
+      </a>
+    </div>
+    <div class="lang-bar">
+      <button onclick="setLang('fi')" id="btn-fi" class="active">FI</button>
+      <button onclick="setLang('sv')" id="btn-sv">SV</button>
+      <button onclick="setLang('en')" id="btn-en">EN</button>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Avaa valikko">&#9776;</button>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="#karitsanliha" onclick="toggleMenu()">
+      <span class="lang-fi">Liha</span><span class="lang-sv">Kött</span><span class="lang-en">Meat</span>
+    </a>
+    <a href="#kehraamo" onclick="toggleMenu()">
+      <span class="lang-fi">Villa &amp; Lanka</span><span class="lang-sv">Ull &amp; Garn</span><span class="lang-en">Wool &amp; Yarn</span>
+    </a>
+    <a href="#tarina" onclick="toggleMenu()">
+      <span class="lang-fi">Tarina</span><span class="lang-sv">Historik</span><span class="lang-en">Story</span>
+    </a>
+    <a href="#yhteystiedot" onclick="toggleMenu()">
+      <span class="lang-fi">Yhteystiedot</span><span class="lang-sv">Kontakt</span><span class="lang-en">Contact</span>
+    </a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-photo"></div>
+  <div class="hero-panel">
+    <div class="hero-panel-content">
+      <div class="hero-eyebrow lang-fi">SARVIJOKI, KURIKKA — EST. 1978</div>
+      <div class="hero-eyebrow lang-sv">SARVIJOKI, KURIKKA — GRUNDAT 1978</div>
+      <div class="hero-eyebrow lang-en">SARVIJOKI, KURIKKA — EST. 1978</div>
+      <h1 class="hero-name">Kaitamäen <em>Lampola</em></h1>
+      <p class="hero-tagline lang-fi">Puhtaita suomenlampaita Etelä-Pohjanmaalta. Karitsanliha, villalanka ja tali suoraan tilalta Sarvijoelta.</p>
+      <p class="hero-tagline lang-sv">Rena finska lantras-får från Södra Österbotten. Lammkött, ullgarn och talg direkt från gården i Sarvijoki.</p>
+      <p class="hero-tagline lang-en">Pure Finnish landrace sheep from South Ostrobothnia. Lamb, wool yarn and tallow direct from the farm in Sarvijoki.</p>
+      <div class="hero-ctas">
+        <a href="#karitsanliha" class="btn btn-primary lang-fi">Tutustu tuotteisiin</a>
+        <a href="#karitsanliha" class="btn btn-primary lang-sv">Se våra produkter</a>
+        <a href="#karitsanliha" class="btn btn-primary lang-en">Our products</a>
+        <a href="#yhteystiedot" class="btn btn-outline lang-fi">Ota yhteyttä</a>
+        <a href="#yhteystiedot" class="btn btn-outline lang-sv">Kontakta oss</a>
+        <a href="#yhteystiedot" class="btn btn-outline lang-en">Get in touch</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-badge">
+    <div class="hero-badge-line1 lang-fi">Suomalaiset suomenlampaat</div>
+    <div class="hero-badge-line1 lang-sv">Finska lantras-får</div>
+    <div class="hero-badge-line1 lang-en">Finnish landrace sheep</div>
+    <div class="hero-badge-line2">100 % suomenlammas</div>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<div class="stats">
+  <div class="stats-inner">
+    <div>
+      <div class="stat-num">1978</div>
+      <div class="stat-label lang-fi">Perustettu</div>
+      <div class="stat-label lang-sv">Grundat</div>
+      <div class="stat-label lang-en">Founded</div>
+    </div>
+    <div>
+      <div class="stat-num">320</div>
+      <div class="stat-label lang-fi">Uuhta laumassa</div>
+      <div class="stat-label lang-sv">Tackor i flocken</div>
+      <div class="stat-label lang-en">Ewes in the flock</div>
+    </div>
+    <div>
+      <div class="stat-num" style="font-size:1.6rem;line-height:1.4">Suomenlammas</div>
+      <div class="stat-label lang-fi">Alkuperäinen rotu</div>
+      <div class="stat-label lang-sv">Ursprungsras</div>
+      <div class="stat-label lang-en">Heritage breed</div>
+    </div>
+    <div>
+      <div class="stat-num" style="font-size:1.6rem;line-height:1.4">Sarvijoki</div>
+      <div class="stat-label lang-fi">Etelä-Pohjanmaa</div>
+      <div class="stat-label lang-sv">Södra Österbotten</div>
+      <div class="stat-label lang-en">South Ostrobothnia</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== KARITSANLIHA ===== -->
+<section class="karitsanliha" id="karitsanliha">
+  <div class="container">
+    <div class="two-col">
+      <div class="photo-wrap">
+        <img src="images/farm-2.jpg" alt="Karitsa ja uuhi lähikuva">
+      </div>
+      <div>
+        <div class="s-eye lang-fi">SUORAMYYNTI TILALTA</div>
+        <div class="s-eye lang-sv">DIREKTFÖRSÄLJNING FRÅN GÅRDEN</div>
+        <div class="s-eye lang-en">DIRECT FROM THE FARM</div>
+        <h2 class="s-title">
+          <span class="lang-fi">Karitsan lihaa suoraan laidunmaalta</span>
+          <span class="lang-sv">Lammkött direkt från betesmarken</span>
+          <span class="lang-en">Lamb direct from open pasture</span>
+        </h2>
+        <p class="s-body lang-fi">Kaitamäen lampolan karitsat syntyvät keväisin ja kasvavat vapaasti Sarvijoen pelloilla puhtaalla laitumella. Suomenlammas on kestävä alkuperäisrotu, jonka liha on maukasta, vähärasvaista ja laadukasta. Karitsanliha myydään suoraan tilalta pakasteena sesongin mukaan.</p>
+        <p class="s-body lang-sv">Kaitamäen gårds lamm föds på våren och växer fritt på Sarvijoki-fältens rena betesmark. Det finska lantraset är en uthållig ursprungsras vars kött är smakriskt, magert och högkvalitativt. Lammköttet säljs direkt från gården som fryst kött, i säsong.</p>
+        <p class="s-body lang-en">Kaitamäen Lampola's lambs are born each spring and roam freely across the pastures of Sarvijoki. The Finnish landrace is a resilient heritage breed whose meat is flavourful, lean and of outstanding quality. Lamb is sold direct from the farm as frozen cuts, in season.</p>
+        <div class="liha-facts">
+          <div class="liha-fact">
+            <div class="lf-key lang-fi">Rotu</div><div class="lf-key lang-sv">Ras</div><div class="lf-key lang-en">Breed</div>
+            <div class="lf-val lang-fi">Suomenlammas</div><div class="lf-val lang-sv">Finsk lantras</div><div class="lf-val lang-en">Finnish landrace</div>
+          </div>
+          <div class="liha-fact">
+            <div class="lf-key lang-fi">Kasvatus</div><div class="lf-key lang-sv">Uppfödning</div><div class="lf-key lang-en">Rearing</div>
+            <div class="lf-val lang-fi">Laidunmaa</div><div class="lf-val lang-sv">Betesmark</div><div class="lf-val lang-en">Open pasture</div>
+          </div>
+          <div class="liha-fact">
+            <div class="lf-key lang-fi">Myynti</div><div class="lf-key lang-sv">Försäljning</div><div class="lf-key lang-en">Sales</div>
+            <div class="lf-val lang-fi">Suoraan tilalta</div><div class="lf-val lang-sv">Direkt från gård</div><div class="lf-val lang-en">Direct from farm</div>
+          </div>
+          <div class="liha-fact">
+            <div class="lf-key lang-fi">Tuote</div><div class="lf-key lang-sv">Produkt</div><div class="lf-key lang-en">Product</div>
+            <div class="lf-val lang-fi">Pakaste, sesonki</div><div class="lf-val lang-sv">Fryst, säsong</div><div class="lf-val lang-en">Frozen, seasonal</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== KEHRÄÄMÖPOLKU ===== -->
+<section class="kehraamo" id="kehraamo">
+  <div class="container">
+    <div class="kehraamo-hd">
+      <div class="s-eye light lang-fi">PELLOLTA KEHRÄÄMÖÖN</div>
+      <div class="s-eye light lang-sv">FRÅN FÅRET TILL GARNET</div>
+      <div class="s-eye light lang-en">FROM FLEECE TO YARN</div>
+      <h2 class="s-title light" style="text-align:center">
+        <span class="lang-fi">Kehräämöpolku</span>
+        <span class="lang-sv">Spinneriet på gården</span>
+        <span class="lang-en">The Spinning Journey</span>
+      </h2>
+      <p class="kehraamo-intro lang-fi">Kaitamäen lampolan pihapiirissä toimii Sarvijoen kehräämö, jossa suomenlampaiden villa jalostuu perinteisin menetelmin laadukkaaksi villalangaksi. Koko polku laitumelta lankaan tapahtuu samalla pihatilalla.</p>
+      <p class="kehraamo-intro lang-sv">I gårdens område finns Sarvijoki spinneriet, där ullfrån de finska lantrasfåren förädlas med traditionella metoder till kvalitetsgarn. Hela resan från betesmark till garn sker på samma gård.</p>
+      <p class="kehraamo-intro lang-en">Within the farm's own grounds operates the Sarvijoki spinning mill, where wool from Finnish landrace sheep is processed by traditional methods into quality yarn. The entire journey from pasture to finished yarn takes place on the same farm.</p>
+    </div>
+    <div class="ksteps">
+      <div class="kstep">
+        <div class="kstep-n">01</div>
+        <div class="kstep-icon">🐑</div>
+        <div class="kstep-title lang-fi">Lammas</div>
+        <div class="kstep-title lang-sv">Fåret</div>
+        <div class="kstep-title lang-en">The Sheep</div>
+        <p class="kstep-body lang-fi">320 uuhta laiduntaa luonnon ehdoilla Sarvijoen pelloilla. Vuosikymmenten kokemus tuottaa tervettä, hyvälaatuista villaa.</p>
+        <p class="kstep-body lang-sv">320 tackor betar naturligt på Sarvijoki-fältens marker. Decennier av erfarenhet ger hälsosam, högkvalitativ ull.</p>
+        <p class="kstep-body lang-en">320 ewes graze naturally across Sarvijoki's fields. Decades of experience produce healthy, high-quality fleece.</p>
+      </div>
+      <div class="kstep">
+        <div class="kstep-n">02</div>
+        <div class="kstep-icon">✂️</div>
+        <div class="kstep-title lang-fi">Leikkuu</div>
+        <div class="kstep-title lang-sv">Klippning</div>
+        <div class="kstep-title lang-en">Shearing</div>
+        <p class="kstep-body lang-fi">Keväinen leikkuu suoritetaan huolellisesti. Raakavillasta erotellaan paras materiaali jatkojalostukseen kehräämöön.</p>
+        <p class="kstep-body lang-sv">Vårklippningen genomförs omsorgsfullt. Ur råullen väljs det bästa materialet ut för vidare bearbetning i spinneriet.</p>
+        <p class="kstep-body lang-en">Spring shearing is carried out with care. The finest raw fleece is selected for further processing at the mill.</p>
+      </div>
+      <div class="kstep">
+        <div class="kstep-n">03</div>
+        <div class="kstep-icon">🏭</div>
+        <div class="kstep-title lang-fi">Kehräämö</div>
+        <div class="kstep-title lang-sv">Spinneriet</div>
+        <div class="kstep-title lang-en">The Mill</div>
+        <p class="kstep-body lang-fi">Sarvijoen kehräämössä villa pestään, karstataan ja kehrätään langaksi. Perinteinen ammattitaito takaa tasalaatuisen lopputuloksen.</p>
+        <p class="kstep-body lang-sv">I Sarvijoki spinneriet tvättas, kardas och spinns ullen till garn. Traditionellt hantverk garanterar ett jämnt och kvalitativt resultat.</p>
+        <p class="kstep-body lang-en">At Sarvijoki Mill the wool is washed, carded and spun into yarn. Traditional craftsmanship ensures a consistent, quality result.</p>
+      </div>
+      <div class="kstep">
+        <div class="kstep-n">04</div>
+        <div class="kstep-icon">🧶</div>
+        <div class="kstep-title lang-fi">Lanka</div>
+        <div class="kstep-title lang-sv">Garnet</div>
+        <div class="kstep-title lang-en">The Yarn</div>
+        <p class="kstep-body lang-fi">Valmis villalanka on täysin suomalaista alkuperää. Hienoa, luonnollista ja kestävää. Saatavilla suoraan tilalta.</p>
+        <p class="kstep-body lang-sv">Det färdiga ullgarnet är av helt finländskt ursprung. Fint, naturligt och hållbart. Tillgängligt direkt från gården.</p>
+        <p class="kstep-body lang-en">The finished yarn is entirely Finnish in origin. Fine, natural and durable. Available direct from the farm.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VILLA & LANKA ===== -->
+<section class="villa" id="villa">
+  <div class="container">
+    <div class="two-col rev">
+      <div class="photo-wrap photo-wrap-sm">
+        <img src="images/farm-1.jpg" alt="Suomenlampaat laitumella">
+      </div>
+      <div>
+        <div class="s-eye lang-fi">VILLA JA TALI</div>
+        <div class="s-eye lang-sv">ULL OCH TALG</div>
+        <div class="s-eye lang-en">WOOL AND TALLOW</div>
+        <h2 class="s-title">
+          <span class="lang-fi">Luonnollista suomenvillaa käsintekijöille</span>
+          <span class="lang-sv">Naturlig finsk ull för handhantverkare</span>
+          <span class="lang-en">Natural Finnish wool for craftspeople</span>
+        </h2>
+        <p class="s-body lang-fi">Suomenlammas on tunnettu poikkeuksellisen laadukkaasta, hienosta ja joustavan pehmeästä villastaan. Kaitamäen lampolan villalanka on valmistettu kokonaan omilta lampailta, kehrätty pihapiirissä toimivassa Sarvijoen kehräämössä. Villalangan lisäksi saatavilla on puhdasta lampaantalia.</p>
+        <p class="s-body lang-sv">Det finska lantraset är känt för sin exceptionellt fina, elastiska och mjuka ull. Kaitamäen gårds ullgarn är tillverkat helt från egna får och spunnet i Sarvijoki spinneriet på gårdsplanen. Förutom ullgarn finns även rent fåretalg tillgängligt.</p>
+        <p class="s-body lang-en">The Finnish landrace is renowned for its exceptionally fine, springy and soft wool. Kaitamäen Lampola's yarn is produced entirely from their own flock and spun in the Sarvijoki mill on the farm grounds. In addition to yarn, pure sheep tallow is also available.</p>
+        <div class="villa-tags">
+          <span class="villa-tag lang-fi">Villalanka</span>
+          <span class="villa-tag lang-sv">Ullgarn</span>
+          <span class="villa-tag lang-en">Wool yarn</span>
+          <span class="villa-tag lang-fi">Raakavilla</span>
+          <span class="villa-tag lang-sv">Råull</span>
+          <span class="villa-tag lang-en">Raw fleece</span>
+          <span class="villa-tag lang-fi">Lampaantali</span>
+          <span class="villa-tag lang-sv">Fåretalg</span>
+          <span class="villa-tag lang-en">Sheep tallow</span>
+          <span class="villa-tag lang-fi">Suomalainen</span>
+          <span class="villa-tag lang-sv">Finländsk</span>
+          <span class="villa-tag lang-en">Finnish origin</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TARINA ===== -->
+<section class="tarina" id="tarina">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <div class="s-eye lang-fi">VUODESTA 1978</div>
+        <div class="s-eye lang-sv">SEDAN 1978</div>
+        <div class="s-eye lang-en">SINCE 1978</div>
+        <h2 class="s-title">
+          <span class="lang-fi">Neljä vuosikymmentä suomenlampaita Sarvijoella</span>
+          <span class="lang-sv">Fyra decennier med finska lantras-får i Sarvijoki</span>
+          <span class="lang-en">Four decades of Finnish sheep in Sarvijoki</span>
+        </h2>
+        <div class="tarina-quote">
+          <p class="lang-fi">"Puhtaita suomenlampaita jo vuodesta 1978."</p>
+          <p class="lang-sv">"Rena finska lantras-får sedan 1978."</p>
+          <p class="lang-en">"Pure Finnish sheep since 1978."</p>
+        </div>
+        <p class="s-body lang-fi">Kaitamäen lampola on kasvattanut alkuperäisrotua, suomenlampaita, Kurikan Sarvijoella jo yli neljän vuosikymmenen ajan. Alkuperäisrotuun erikoistuminen on ollut tietoinen valinta, jota kantavat arvot ovat olleet laatu, perinne ja kestävyys.</p>
+        <p class="s-body lang-sv">Kaitamäen gård har födat upp ursprungsrasen finsk lantras i Kurikka Sarvijoki i över fyra decennier. Specialiseringen på ursprungsrasen har varit ett medvetet val, drivet av värden som kvalitet, tradition och hållbarhet.</p>
+        <p class="s-body lang-en">Kaitamäen Lampola has raised the native Finnish landrace sheep in Kurikka's Sarvijoki for over four decades. Specialising in a heritage breed has been a deliberate choice, driven by a commitment to quality, tradition and sustainability.</p>
+        <p class="s-body lang-fi" style="margin-top:16px">Suomenlammas on Suomen kansallisrotu, joka sopii erinomaisesti pohjalaisiin luonnonolosuhteisiin. Lauma on kasvanut 320 uuheen, ja tilan yhteydessä toimiva Sarvijoen kehräämö on tuonut lampurin taidon entistä lähemmäs lopputuotetta.</p>
+        <p class="s-body lang-sv" style="margin-top:16px">Det finska lantraset är Finlands nationalras, som passar utmärkt för de österbottniska naturförhållandena. Flocken har vuxit till 320 tackor och det på gården belägna Sarvijoki spinneriet har fört lammherdekunnandet ännu närmare slutprodukten.</p>
+        <p class="s-body lang-en" style="margin-top:16px">The Finnish landrace is Finland's national breed, superbly suited to the conditions of Ostrobothnia. The flock has grown to 320 ewes, and the on-farm Sarvijoki spinning mill has brought the shepherd's craft ever closer to the finished product.</p>
+        <div class="tarina-meta">
+          <div class="tm-item"><strong>45+</strong>
+            <span class="lang-fi">vuotta kokemusta</span>
+            <span class="lang-sv">år erfarenhet</span>
+            <span class="lang-en">years of experience</span>
+          </div>
+          <div class="tm-item"><strong>320</strong>
+            <span class="lang-fi">uuhta</span>
+            <span class="lang-sv">tackor</span>
+            <span class="lang-en">ewes</span>
+          </div>
+          <div class="tm-item"><strong>100 %</strong>
+            <span class="lang-fi">suosittelee</span>
+            <span class="lang-sv">rekommenderar</span>
+            <span class="lang-en">recommend</span>
+          </div>
+        </div>
+      </div>
+      <div class="photo-wrap">
+        <img src="images/farm-5.jpg" alt="Kaitamäen lampola tilakuva">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<div class="gallery">
+  <div class="g-grid">
+    <div class="gcell">
+      <img src="images/farm-3.jpg" alt="Kaitamäen lampola suomenlampaat">
+    </div>
+    <div class="gcell">
+      <img src="images/hero.jpg" alt="Lampola maisema Sarvijoki">
+    </div>
+    <div class="gcell">
+      <img src="images/farm-6.jpg" alt="Suomenlammaskaritsa">
+    </div>
+    <div class="gcell">
+      <img src="images/farm-1.jpg" alt="Karitsa emänsä vierellä">
+    </div>
+    <div class="gcell">
+      <img src="images/logo.jpg" alt="Kaitamäen lampola">
+    </div>
+  </div>
+</div>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact" id="yhteystiedot">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2>Kaitamäen Lampola</h2>
+        <div class="contact-sub lang-fi">Sarvijoki, Kurikka, Etelä-Pohjanmaa</div>
+        <div class="contact-sub lang-sv">Sarvijoki, Kurikka, Södra Österbotten</div>
+        <div class="contact-sub lang-en">Sarvijoki, Kurikka, South Ostrobothnia</div>
+
+        <div class="ci">
+          <div class="ci-icon">📍</div>
+          <div>
+            <div class="ci-key lang-fi">Osoite</div>
+            <div class="ci-key lang-sv">Adress</div>
+            <div class="ci-key lang-en">Address</div>
+            <div class="ci-val">Kirkkotaival 24–36<br>66340 Sarvijoki, Kurikka</div>
+          </div>
+        </div>
+        <div class="ci">
+          <div class="ci-icon">📞</div>
+          <div>
+            <div class="ci-key lang-fi">Puhelin</div>
+            <div class="ci-key lang-sv">Telefon</div>
+            <div class="ci-key lang-en">Phone</div>
+            <div class="ci-val"><a href="tel:+358503306051">050 3306051</a></div>
+          </div>
+        </div>
+        <div class="ci">
+          <div class="ci-icon">✉️</div>
+          <div>
+            <div class="ci-key">Email</div>
+            <div class="ci-val"><a href="mailto:kaitamaen.lampola@gmail.com">kaitamaen.lampola@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="ci">
+          <div class="ci-icon">📘</div>
+          <div>
+            <div class="ci-key">Facebook</div>
+            <div class="ci-val"><a href="https://www.facebook.com/p/Kait am%C3%A4en-Lampola-100057353475350/" target="_blank" rel="noopener">Kaitamäen Lampola</a></div>
+          </div>
+        </div>
+        <div style="margin-top:32px">
+          <a href="mailto:kaitamaen.lampola@gmail.com" class="btn btn-primary lang-fi">Lähetä viesti</a>
+          <a href="mailto:kaitamaen.lampola@gmail.com" class="btn btn-primary lang-sv">Skicka meddelande</a>
+          <a href="mailto:kaitamaen.lampola@gmail.com" class="btn btn-primary lang-en">Send a message</a>
+        </div>
+      </div>
+      <div>
+        <iframe class="map-frame"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7611.3!2d22.4!3d62.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNjLCsDQ4JzAwLjAiTiAyMsKwMjQnMDAuMCJF!5e0!3m2!1sfi!2sfi!4v1720000000000!5m2!1sfi!2sfi"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Kaitamäen Lampola sijainti kartalla">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="ft-name">Kaitamäen Lampola &mdash; Sarvijoki, Kurikka</div>
+  <div class="ft-links">
+    <a href="mailto:kaitamaen.lampola@gmail.com">Email</a>
+    <a href="tel:+358503306051">
+      <span class="lang-fi">Puhelin</span>
+      <span class="lang-sv">Telefon</span>
+      <span class="lang-en">Phone</span>
+    </a>
+    <a href="https://www.facebook.com/p/Kaitam%C3%A4en-Lampola-100057353475350/" target="_blank" rel="noopener">Facebook</a>
+  </div>
+  <div class="ft-demo">
+    <span class="lang-fi">Demo-sivusto, suunniteltu Anton Jalonen</span>
+    <span class="lang-sv">Demosida, designad av Anton Jalonen</span>
+    <span class="lang-en">Demo site, designed by Anton Jalonen</span>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang){
+    document.documentElement.setAttribute('data-lang',lang);
+    document.documentElement.setAttribute('lang',lang);
+    ['fi','sv','en'].forEach(l=>{
+      const btn=document.getElementById('btn-'+l);
+      if(btn) btn.classList.toggle('active',l===lang);
+    });
+    localStorage.setItem('lang',lang);
+  }
+
+  function toggleMenu(){
+    const m=document.getElementById('nav-mobile');
+    m.classList.toggle('open');
+  }
+
+  // Init language
+  (function(){
+    const saved=localStorage.getItem('lang');
+    if(saved&&['fi','sv','en'].includes(saved)){setLang(saved);}
+    else{setLang('fi');}
+  })();
+</script>
+</body>
+</html>
