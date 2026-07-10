@@ -1,0 +1,9 @@
+{
+  "to": "kaitamaen.lampola@gmail.com",
+  "site_url": "https://antonjalonen-cmd.github.io/kaitamaen-lampola/",
+  "farm_name": "Kaitamäen Lampola",
+  "folder": "kaitamaen-lampola",
+  "created": "2026-07-10T03:47:00",
+  "send_after": "08:00",
+  "note": "Built by autopilot tick 2026-07-10. Site was pre-built in a prior session, deployed this tick. Ready to send via gmail_helper.send_email()."
+}
